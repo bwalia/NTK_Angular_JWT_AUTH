@@ -1,0 +1,73 @@
+<div class="card" ng-controller="locationController">
+	<div class="header">
+    	<div CLASS="col-md-6"><h4 class="title">Locations</h4></div>
+        <div CLASS=" text-right">
+			<!-- Trigger the modal with a button -->
+  			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"><i CLASS="fa fa-plus"></i> Add new location</button>
+  		</div>
+			<!--<div CLASS=" text-right"> <a HREF="#new-task" CLASS="btn btn-primary" ><i CLASS="fa fa-plus"></i> Add new task</a></div>-->
+    </div>
+			
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+    		<div class="modal-dialog">
+    			<!-- Modal content-->
+      			<div class="modal-content">
+        			<div class="modal-header">
+          				<button type="button" class="close" data-dismiss="modal" ng-click="reset_form()">&times;</button>
+          				<h4 class="modal-title">Add new location</h4>
+        			</div>
+        			<div class="modal-body" >
+         			<form class="form-horizontal" name="addNewForm" ng-submit="save_new_location()">
+  						<div class="form-group">
+    						<label for="#" class="col-md-3">Name <span style="color:#6E829B">*</span></label>
+    						<div class="col-md-9">
+      							<input class="form-control" id="Name" name="Name" ng-model="Name" type="text" required>
+      							<!--<span style="color:red" ng-show="addNewForm.Name.$dirty && addNewForm.Name.$invalid">
+									<span ng-show="addNewForm.Name.$error.required">Username is required.</span>
+								</span>-->
+    						</div>
+  						</div>
+	 					
+						<div class="form-group">
+							<div class="col-md-12 text-right" style="padding-left:30px;">
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</div>
+						</div>
+					</form>
+        			</div>
+        		</div>
+			</div>
+		</div>
+		
+		<div class="content">
+        	<div class="table-responsive table-full-width">
+            	<table class="table table-hover table-striped">
+                	<tbody>
+                		<tr>
+                 			<td class="td-actions"><STRONG>Location</STRONG></td>
+                        	<td class="td-actions"><STRONG>Action</STRONG></td>
+                        </tr>
+                        <tr ng-repeat="x in contentList">
+							<td class="td-actions">
+        						<span editable-text="x.Name" e-name="Name" e-form="rowform" onbeforesave="checkLocationName($data, x.ID)" e-required>
+          							{{ x.Name || 'empty' }}
+        						</span>
+      						</td>
+      						<td class="td-actions">
+        						<form editable-form name="rowform" onbeforesave="save_existing_location($data, x.ID)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == x">
+          							<button type="submit" ng-disabled="rowform.$waiting" class="btn btn-info btn-simple btn-xs"><i class="fa fa-save" style="font-size:16px;"></i></button>
+          							<button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-danger btn-simple btn-xs"><i class="fa fa-times" style="font-size:16px;"></i></button>
+        						</form>
+        						<div class="buttons" ng-show="!rowform.$visible">
+          							<button class="btn btn-info btn-simple btn-xs" ng-click="rowform.$show()"><i class="fa fa-edit" style="font-size:16px;"></i></button>
+          							<button class="btn btn-danger btn-simple btn-xs" ng-click="remove_location(x.ID)"><i class="fa fa-trash" style="font-size:16px;"></i></button>
+        						</div>  
+      						</td>
+    					</tr>
+                        
+    				</tbody>
+				</table>
+            </div>
+        </div>
+</div>

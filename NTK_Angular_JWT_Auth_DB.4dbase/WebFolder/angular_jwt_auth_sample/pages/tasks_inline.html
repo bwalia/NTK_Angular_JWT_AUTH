@@ -1,0 +1,129 @@
+<div class="card" ng-controller="tasksController">
+	<div class="header">
+    	<div CLASS="col-md-6"><h4 class="title">Tasks</h4></div>
+        <div CLASS=" text-right">
+			<!-- Trigger the modal with a button -->
+  			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"><i CLASS="fa fa-plus"></i> Add new task</button></div>
+			<!--<div CLASS=" text-right"> <a HREF="#new-task" CLASS="btn btn-primary" ><i CLASS="fa fa-plus"></i> Add new task</a></div>-->
+         </div>
+			
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+    		<div class="modal-dialog">
+    			<!-- Modal content-->
+      			<div class="modal-content">
+        			<div class="modal-header">
+          				<button type="button" class="close" data-dismiss="modal" ng-click="reset_form()">&times;</button>
+          				<h4 class="modal-title">Add new task</h4>
+        			</div>
+        			<div class="modal-body" >
+         			<form class="form-horizontal" name="addNewForm" ng-submit="add_new()">
+  						<div class="form-group">
+    						<label for="#" class="col-md-3">Task <span style="color:#6E829B">*</span></label>
+    						<div class="col-md-9">
+      							<input class="form-control" id="Title" name="Title" ng-model="Title" type="text" required>
+    						</div>
+  						</div>
+  
+  						<div class="form-group">
+    						<label for="#" class="col-md-3">Notes </label>
+    						<div class="col-md-9">
+    							<textarea rows="5" class="form-control" ng-model="Notes" placeholder="Here can be your notes" value="" name="Notes"></textarea>
+    						</div>
+  						</div>
+	 					<div class="form-group">
+    						<label for="#" class="col-md-3">Project </label>
+    						<div class="col-md-9">
+     							<select class="form-control" id="ProjectID" ng-model="ProjectID">
+      								<option value="">--Select Project--</option>
+      								<option value="Project 1">Project 1</option>
+      								<option value="Project 2">Project 2</option>
+      								<option value="Project 3">Project 3</option>
+      							</select>
+    						</div>
+  						</div>
+  						<div class="form-group">
+    						<label for="#" class="col-md-3">Location </label>
+    						<div class="col-md-9">
+     							<select class="form-control" id="LocationID" ng-model="LocationID">
+      								<option value="">--Select Location--</option>
+      								<option value="Home">Home</option>
+      								<option value="Office">Office</option>
+      								<option value="Other">Other</option>
+      							</select>
+    						</div>
+  						</div>
+  						<div class="form-group">
+    						<label for="#" class="col-md-3">Due Date </label>
+    						<div class="col-md-9">
+     							<input class="form-control datepicker" id="DueDate" name="DueDate" ng-model="DueDate" type="text" readonly>
+    						</div>
+  						</div>
+						<div class="form-group">
+							<div class="col-md-12 text-right" style="padding-left:30px;">
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</div>
+						</div>
+					</form>
+        			</div>
+        		</div>
+			</div>
+		</div>
+                            <div class="content">
+                                <div class="table-responsive table-full-width">
+                                    <table class="table table-hover table-striped">
+                                        <tbody>
+                                        	
+                                            <tr>
+                                                <td><STRONG>Completed</STRONG></td>
+                                                <td class="td-actions"><STRONG>Task Name</STRONG></td>
+                                                <td class="td-actions"><STRONG>Project</STRONG></td>
+                                                <td class="td-actions"><STRONG>Location</STRONG></td>
+                                            	<td class="td-actions"><STRONG>Notes</STRONG></td>
+                                                <td class="td-actions"><STRONG>Action</STRONG></td>
+                                            </tr>
+                                            <tr ng-repeat="x in contentList">
+                                            	<td>
+                        							<!-- <label class="checkbox">
+                                                        <span class="icons"><span class="first-icon fa fa-square-o"></span><span class="second-icon fa fa-check-square-o"></span></span><span class="icons"><span class="first-icon fa fa-square-o"></span><span class="second-icon fa fa-check-square-o"></span></span>
+                                                        <input data-toggle="checkbox" type="checkbox" value="{{ x.Completed }}" ng-checked="{{ x.Completed }}">
+                                                   </label>-->
+                                                   <input type="checkbox" value="{{ x.Completed }}" ng-checked="{{ x.Completed }}">
+												</td>
+                                               	<td class="td-actions"><input ng-show="show" class ="form-control" ng-model="x.Title"><span ng-hide="show">{{ x.Title }}</span></td>
+                                                <td class="td-actions">
+                                                	<select ng-show="show" class="form-control" ng-model="x.Project" required>
+      													<option value="">--Select Project--</option>
+      													<option value="Project 1" ng-selected="{{ x.Location == 'Project 1' }}">Project 1</option>
+      													<option value="Project 2" ng-selected="{{ x.Location == 'Project 2' }}">Project 2</option>
+      													<option value="Project 3" ng-selected="{{ x.Location == 'Project 3' }}">Project 3</option>
+      												</select>
+                                                	<span ng-hide="show">{{ x.Project }}</span>
+                                                </td>
+                                                <td class="td-actions">
+                                                	<select ng-show="show" class="form-control" ng-model="x.Location" required>
+      													<option value="">--Select Location--</option>
+      													<option value="Home" ng-selected="{{ x.Location == 'Home' }}">Home</option>
+      													<option value="Office" ng-selected="{{ x.Location == 'Office' }}">Office</option>
+      													<option value="Other" ng-selected="{{ x.Location == 'Other' }}">Other</option>
+      												</select>
+                                                	<span ng-hide="show">{{ x.Location }}</span>
+                                                </td>
+                                                <td class="td-actions"><input ng-show="show" class ="form-control" ng-model="x.Notes"><span ng-hide="show">{{ x.Notes }}</span></td>
+                                                <td class="td-actions">
+                                                    <button ng-click="show = !show; (show == false) ? update_data(x.ID, show) : 'edit_task()'" data-original-title="Edit Task" type="button" rel="tooltip" title="" class="btn btn-info btn-simple btn-xs">
+                                                        <i class="fa fa-edit"></i> 
+                                                    </button>
+                                                    <button ng-click="(show == true) ? show = !show : remove_task(x.ID);" data-original-title="Remove" type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-xs">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                
+                            </div>
+                        </div>

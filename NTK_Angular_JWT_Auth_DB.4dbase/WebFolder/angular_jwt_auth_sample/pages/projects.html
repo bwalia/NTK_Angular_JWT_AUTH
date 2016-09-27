@@ -1,0 +1,94 @@
+<div class="card" ng-controller="projectController">
+	<div class="header">
+    	<div CLASS="col-md-6"><h4 class="title">Projects</h4></div>
+        <div CLASS=" text-right">
+			<!-- Trigger the modal with a button -->
+  			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"><i CLASS="fa fa-plus"></i> Add new project</button>
+  		</div>
+			<!--<div CLASS=" text-right"> <a HREF="#new-task" CLASS="btn btn-primary" ><i CLASS="fa fa-plus"></i> Add new task</a></div>-->
+    </div>
+			
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+    		<div class="modal-dialog">
+    			<!-- Modal content-->
+      			<div class="modal-content">
+        			<div class="modal-header">
+          				<button type="button" class="close" data-dismiss="modal" ng-click="reset_form()">&times;</button>
+          				<h4 class="modal-title">Add new project</h4>
+        			</div>
+        			<div class="modal-body" >
+         			<form class="form-horizontal" name="addNewForm" ng-submit="save_data()">
+  						<div class="form-group">
+    						<label for="#" class="col-md-3">Name <span style="color:#6E829B">*</span></label>
+    						<div class="col-md-9">
+      							<input class="form-control" id="Name" name="Name" ng-model="Name" type="text" required>
+    						</div>
+  						</div>
+  
+  						<div class="form-group">
+    						<label for="#" class="col-md-3">Notes</label>
+    						<div class="col-md-9">
+    							<textarea rows="5" class="form-control" ng-model="Notes" placeholder="Here can be your notes" name="Notes"></textarea>
+    						</div>
+  						</div>
+	 					
+						<div class="form-group">
+							<div class="col-md-12 text-right" style="padding-left:30px;">
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</div>
+						</div>
+					</form>
+        			</div>
+        		</div>
+			</div>
+		</div>
+		
+		<div class="content">
+        	<div class="table-responsive table-full-width">
+            	<table class="table table-hover table-striped">
+                	<tbody>
+                		<tr>
+                 			<td class="td-actions"><STRONG>Project</STRONG></td>
+                            <td class="td-actions"><STRONG>Notes</STRONG></td>
+                        	<td class="td-actions"><STRONG>Action</STRONG></td>
+                        </tr>
+                        <tr ng-repeat="x in contentList">
+                        	<td class="td-actions">
+                            	{{ x.Name }}
+                            </td>
+                            <td class="td-actions">
+                            	{{ x.Notes }}
+                            </td>
+                           	<td class="td-actions">
+								<button ng-click="edit_content(x)" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false" data-original-title="Edit Project" type="button" rel="tooltip" title="" class="btn btn-info btn-simple btn-xs">
+                                	<i style="font-size:16px;" class="fa fa-edit"></i> 
+                               	</button>
+                                <button ng-click="delete_confirmation(x.ID)" data-toggle="modal" data-target="#confirmation_box" data-backdrop="static" data-keyboard="false" data-original-title="Remove" type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-xs">
+									<i style="font-size:16px;" class="fa fa-times"></i>
+                                </button>
+                          	</td>
+                    	</tr>
+    				</tbody>
+				</table>
+            </div>
+        </div>
+        
+	<div class="modal fade" tabindex="-1" role="dialog" id="confirmation_box" ng-show="confirmationBox">
+  		<div class="modal-dialog" role="document">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        		<h4 class="modal-title">Are you sure to delete this project?</h4>
+        		<input class="form-control" name="removeID" ng-model="removeID" type="hidden" value="">
+      		</div>
+      		
+      		<div class="modal-footer">
+        		<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="removeID = ''">No</button>
+        		<button type="button" class="btn btn-primary" ng-click="remove_project()">Yes, I m sure</button>
+      		</div>
+    		</div><!-- /.modal-content -->
+  		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	
+</div>

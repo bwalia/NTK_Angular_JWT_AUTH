@@ -1,0 +1,60 @@
+<div class="row" ng-controller="userController">
+                    
+
+                    <div class="col-md-22">
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">My Account</h4>
+                               
+                            </div>
+                            <div class="content">
+<form class="form-horizontal" name="userForm" ng-submit="submitForm()" novalidate>
+	<div class="form-group" ng-class="{ 'has-error' : userForm.Username.$invalid && !userForm.Username.$pristine }">
+    	<label for="#" class="col-md-2">Username <span style="color:#6E829B">*</span></label>
+   		<div class="col-md-4">
+      		<input class="form-control" name="Username" ng-model="Username" type="text" required>
+      		<p ng-show="userForm.Username.$invalid && !userForm.Username.$pristine" class="help-block">Username is required.</p>
+    	</div>
+  	</div>
+  <div class="form-group" ng-class="{ 'has-error' : userForm.Email.$invalid && !userForm.Email.$pristine }">
+    	<label for="#" class="col-md-2">Email Address <span style="color:#6E829B">*</span></label>
+   		<div class="col-md-4">
+      		<input class="form-control" name="Email" ng-model="Email" type="email" required>
+      		<p ng-show="userForm.Email.$invalid && !userForm.Email.$pristine" class="help-block">Enter a valid email.</p>
+    	</div>
+  	</div>
+  
+  	<div class="form-group">
+    	<label for="#" class="col-md-2">First Name</label>
+   		<div class="col-md-4">
+      		<input class="form-control" ng-model="FirstName" type="text">
+    	</div>
+  	</div>
+  	<div class="form-group">
+    	<label for="#" class="col-md-2">Last Name</label>
+   		<div class="col-md-4">
+      		<input class="form-control" ng-model="LastName" type="text">
+    	</div>
+  	</div>
+  	<div class="form-group" ng-class="{ 'has-error' : userForm.Password.$invalid && !userForm.Password.$pristine }">
+    	<label for="#" class="col-md-2">Password <span style="color:#6E829B">*</span></label>
+   		<div class="col-md-4">
+      		<input class="form-control" name="Password" ng-model="Password" type="password" required ng-minlength="3" ng-maxlength="8">
+      		<p ng-show="userForm.Password.$invalid && !userForm.Password.$pristine" class="help-block">Password is required.</p>
+      		<p ng-show="userForm.Password.$error.minlength" class="help-block">Password is too short.</p>
+            <p ng-show="userForm.Password.$error.maxlength" class="help-block">Password is too long.</p>
+    	</div>
+  	</div>
+  	
+	<div class="form-group">
+		<div class="col-sm-offset-4 col-sm-6" style="padding-left:30px;">
+			<button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Submit</button>
+		</div>
+	</div>
+</form>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
