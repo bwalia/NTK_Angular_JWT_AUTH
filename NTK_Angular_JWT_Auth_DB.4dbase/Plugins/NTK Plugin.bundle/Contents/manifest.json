@@ -1,0 +1,558 @@
+﻿{
+	"name": "NTK Plugin",
+	"id": 15000,
+	"commands": [
+		{
+			"theme": "NTK General Commands",
+			"syntax": "NTK Register(&T):I"
+		},
+		{
+			"theme": "NTK General Commands",
+			"syntax": "NTK Get Version(&T):T"
+		},
+		{
+			"theme": "NTK General Commands",
+			"syntax": "NTK Set Error Handler(&T):I"
+		},
+		{
+			"theme": "NTK General Commands",
+			"syntax": "NTK Get Host Name:T"
+		},
+		{
+			"theme": "NTK General Commands",
+			"syntax": "NTK Get Host By Name(&T):T"
+		},
+		{
+			"theme": "NTK General Commands",
+			"syntax": "NTK Get Host By Address(&T):T"
+		},
+		{
+			"theme": "NTK General Commands",
+			"syntax": "NTK Get Local Addresses(&Y;&Y;&Y)"
+		},
+		{
+			"theme": "NTK General Commands",
+			"syntax": "NTK Syslog(&L;&T)"
+		},
+		{
+			"theme": "NTK General Commands",
+			"syntax": "NTK Debuglog(&T)"
+		},
+		{
+			"theme": "NTK General Commands",
+			"syntax": "NTK Create UUID:T"
+		},
+		{
+			"theme": "NTK General Commands",
+			"syntax": "NTK Sleep(&L)"
+		},
+		{
+			"theme": "NTK General Commands",
+			"syntax": "NTK DateTime To GMT(&D;&H;&D;&H):T"
+		},
+		{
+			"theme": "TCP Commands",
+			"syntax": "TCP Open(&T;&L;&T):L"
+		},
+		{
+			"theme": "TCP Commands",
+			"syntax": "TCP Close(&L)"
+		},
+		{
+			"theme": "TCP Commands",
+			"syntax": "TCP Shutdown(&L;&I)"
+		},
+		{
+			"theme": "TCP Commands",
+			"syntax": "TCP Listen(&T;&L;&T):L"
+		},
+		{
+			"theme": "TCP Commands",
+			"syntax": "TCP Accept(&L):L"
+		},
+		{
+			"theme": "TCP Commands",
+			"syntax": "TCP Send(&L;&T):L"
+		},
+		{
+			"theme": "TCP Commands",
+			"syntax": "TCP Send Blob(&L;&O):L"
+		},
+		{
+			"theme": "TCP Commands",
+			"syntax": "TCP Send File(&L;&T):L"
+		},
+		{
+			"theme": "TCP Commands",
+			"syntax": "TCP Receive(&L;&T;&L;&T):L"
+		},
+		{
+			"theme": "TCP Commands",
+			"syntax": "TCP Receive Blob(&L;&O;&L;&T):L"
+		},
+		{
+			"theme": "TCP Commands",
+			"syntax": "TCP Receive File(&L;&T;&L):L"
+		},
+		{
+			"theme": "TCP Commands",
+			"syntax": "TCP Lookahead(&L;&T;&L;&T):L"
+		},
+		{
+			"theme": "TCP Commands",
+			"syntax": "TCP Lookahead Blob(&L;&O;&L;&T):L"
+		},
+		{
+			"theme": "TCP Commands",
+			"syntax": "TCP Get Local Address(&L;&T;&L)"
+		},
+		{
+			"theme": "TCP Commands",
+			"syntax": "TCP Get Remote Address(&L;&T;&L)"
+		},
+		{
+			"theme": "TCP Commands",
+			"syntax": "TCP Get State(&L):I"
+		},
+		{
+			"theme": "TCP Commands",
+			"syntax": "TCP Get Statistics(&L;&I):L"
+		},
+		{
+			"theme": "TCP Commands",
+			"syntax": "TCP Get SSL Verify Result(&L;&I;&T)"
+		},
+		{
+			"theme": "TCP Commands",
+			"syntax": "TCP Get Local SSL Info(&L;&Y;&Y)"
+		},
+		{
+			"theme": "TCP Commands",
+			"syntax": "TCP Get Remote SSL Info(&L;&Y;&Y)"
+		},
+		{
+			"theme": "TCP Commands",
+			"syntax": "TCP Is Secure Connection(&L):I"
+		},
+		{
+			"theme": "TCP Commands",
+			"syntax": "TCP Get Sockets(&Y;&L)"
+		},
+		{
+			"theme": "UDP Commands",
+			"syntax": "UDP Open(&T;&L):L"
+		},
+		{
+			"theme": "UDP Commands",
+			"syntax": "UDP Close(&L)"
+		},
+		{
+			"theme": "UDP Commands",
+			"syntax": "UDP Send(&L;&T;&T;&L):L"
+		},
+		{
+			"theme": "UDP Commands",
+			"syntax": "UDP Send Blob(&L;&O;&T;&L):L"
+		},
+		{
+			"theme": "UDP Commands",
+			"syntax": "UDP Receive(&L;&T;&T;&L):L"
+		},
+		{
+			"theme": "UDP Commands",
+			"syntax": "UDP Receive Blob(&L;&O;&T;&L):L"
+		},
+		{
+			"theme": "UDP Commands",
+			"syntax": "UDP Join Group(&L;&T)"
+		},
+		{
+			"theme": "UDP Commands",
+			"syntax": "UDP Leave Group(&L;&T)"
+		},
+		{
+			"theme": "UDP Commands",
+			"syntax": "UDP Set Max Router Hops(&L;&I)"
+		},
+		{
+			"theme": "UDP Commands",
+			"syntax": "UDP Send To Self(&L;&I)"
+		},
+		{
+			"theme": "IPC Commands",
+			"syntax": "IPC New Channel(&L;&T):L"
+		},
+		{
+			"theme": "IPC Commands",
+			"syntax": "IPC Delete Channel(&L)"
+		},
+		{
+			"theme": "IPC Commands",
+			"syntax": "IPC Get Channel Name(&L):T"
+		},
+		{
+			"theme": "IPC Commands",
+			"syntax": "IPC Send(&L;&T;&T;&L)"
+		},
+		{
+			"theme": "IPC Commands",
+			"syntax": "IPC Broadcast(&T;&T;&T;&L)"
+		},
+		{
+			"theme": "IPC Commands",
+			"syntax": "IPC Receive(&L;&T;&T;&L):I"
+		},
+		{
+			"theme": "IPC Commands",
+			"syntax": "IPC Count Messages(&L):L"
+		},
+		{
+			"theme": "IPC Commands",
+			"syntax": "IPC Get Message By Index(&L;&L;&T;&T)"
+		},
+		{
+			"theme": "IPC Commands",
+			"syntax": "IPC Count Channels:L"
+		},
+		{
+			"theme": "IPC Commands",
+			"syntax": "IPC Get Channel By Index(&L):L"
+		},
+		{
+			"theme": "IPC Commands",
+			"syntax": "IPC Get Channel By Name(&T):L"
+		},
+		{
+			"theme": "GZip Commands",
+			"syntax": "GZip Compress Blob(&O;&I;&I):O"
+		},
+		{
+			"theme": "GZip Commands",
+			"syntax": "GZip Decompress Blob(&O;&I):O"
+		},
+		{
+			"theme": "GZip Commands",
+			"syntax": "GZip Compress Document(&T;&T;&I)"
+		},
+		{
+			"theme": "GZip Commands",
+			"syntax": "GZip Decompress Document(&T;&T)"
+		},
+		{
+			"theme": "Encryption Commands",
+			"syntax": "NTK Get Encryption Methods(&Y)"
+		},
+		{
+			"theme": "Encryption Commands",
+			"syntax": "NTK Get Hash Methods(&Y)"
+		},
+		{
+			"theme": "Encryption Commands",
+			"syntax": "NTK Get Random Password(&T):T"
+		},
+		{
+			"theme": "Encryption Commands",
+			"syntax": "NTK Encrypt Blob(&O;&T;&T;&I;&T;&I):O"
+		},
+		{
+			"theme": "Encryption Commands",
+			"syntax": "NTK Decrypt Blob(&O;&T;&T;&I;&T;&I):O"
+		},
+		{
+			"theme": "Encryption Commands",
+			"syntax": "NTK Hash Text(&T;&T):T"
+		},
+		{
+			"theme": "Encryption Commands",
+			"syntax": "NTK Hash Blob(&O;&T):T"
+		},
+		{
+			"theme": "Encryption Commands",
+			"syntax": "NTK Hash Document(&T;&T):T"
+		},
+		{
+			"theme": "Encryption Commands",
+			"syntax": "NTK HMAC Text(&T;&T;&T;&I;&I):T"
+		},
+		{
+			"theme": "Encryption Commands",
+			"syntax": "NTK HMAC Blob(&O;&T;&T;&I;&I):T"
+		},
+		{
+			"theme": "Encryption Commands",
+			"syntax": "NTK HMAC Document(&T;&T;&T;&I;&I):T"
+		},
+		{
+			"theme": "Encryption Commands",
+			"syntax": "NTK Sign Blob(&O;&O;&T;&T):O"
+		},
+		{
+			"theme": "Encryption Commands",
+			"syntax": "NTK Verify Blob(&O;&O;&O;&T):I"
+		},
+		{
+			"theme": "Encryption Commands",
+			"syntax": "NTK Seal Blob(&O;&O;&T;&O;&O)"
+		},
+		{
+			"theme": "Encryption Commands",
+			"syntax": "NTK Unseal Blob(&O;&O;&O;&T;&T):O"
+		},
+		{
+			"theme": "Markdown Commands",
+			"syntax": "Markdown Process Text(&T;&L):T"
+		},
+		{
+			"theme": "Markdown Commands",
+			"syntax": "Markdown Get CSS:T"
+		},
+		{
+			"theme": "Markdown Commands",
+			"syntax": "Markdown Get TOC:T"
+		},
+		{
+			"theme": "Markdown Commands",
+			"syntax": "Markdown Get Doc Title:T"
+		},
+		{
+			"theme": "Markdown Commands",
+			"syntax": "Markdown Get Doc Author:T"
+		},
+		{
+			"theme": "Markdown Commands",
+			"syntax": "Markdown Get Doc Date:T"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON New Object:L"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON New Array:L"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Retain(&L)"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Release(&L)"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Get Ref Count(&L):L"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Parse Document(&T):L"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Parse Blob(&O):L"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Parse Text(&T):L"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Save As Document(&L;&T;&L):I"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Save As Blob(&L;&L):O"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Save As Text(&L;&L):T"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Count Items(&L):L"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Get Item By Index(&L;&L):T"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Get Item Type(&L;&T):I"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Get Keys(&L;&Y)"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Has Key(&L;&T):I"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Remove Key(&L;&T)"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Copy(&L):L"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Clear(&L)"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Update(&L;&L;&I)"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Equals(&L;&L):I"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Set Text(&L;&T;&T)"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Set Number(&L;&T;&8)"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Set Object(&L;&T;&L)"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Set Array(&L;&T;&L)"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Set Boolean(&L;&T;&I)"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Set Date(&L;&T;&D)"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Set 4D Array(&L;&T;&Y)"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Set Null(&L;&T)"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Get Text(&L;&T):T"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Get Number(&L;&T):8"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Get Object(&L;&T):L"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Get Array(&L;&T):L"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Get Boolean(&L;&T):I"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Get Date(&L;&T):D"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Get 4D Array(&L;&T;&Y)"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Get Null(&L;&T):I"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Is Valid Object(&L):I"
+		},
+		{
+			"theme": "JSON Commands",
+			"syntax": "JSON Get Valid Objects(&Y)"
+		},
+		{
+			"theme": "JavaScript Commands",
+			"syntax": "JS New Context(&T):L"
+		},
+		{
+			"theme": "JavaScript Commands",
+			"syntax": "JS Delete Context(&L)"
+		},
+		{
+			"theme": "JavaScript Commands",
+			"syntax": "JS Run Script(&L;&T;&T):I"
+		},
+		{
+			"theme": "JavaScript Commands",
+			"syntax": "JS Run Script File(&L;&T;&T):I"
+		},
+		{
+			"theme": "JavaScript Commands",
+			"syntax": "JS Call Function(&L;&T;&T;&T):I"
+		},
+		{
+			"theme": "JavaScript Commands",
+			"syntax": "JS Set Variable(&L;&T;&T)"
+		},
+		{
+			"theme": "JavaScript Commands",
+			"syntax": "JS Get Variable(&L;&T):T"
+		},
+		{
+			"theme": "JavaScript Commands",
+			"syntax": "JS Set Stdin(&L;&T)"
+		},
+		{
+			"theme": "JavaScript Commands",
+			"syntax": "JS Get Stdout(&L;&I):T"
+		},
+		{
+			"theme": "JavaScript Commands",
+			"syntax": "JS Get Stderr(&L;&I):T"
+		},
+		{
+			"theme": "JWT Commands",
+			"syntax": "JWT New(&T;&T):L"
+		},
+		{
+			"theme": "JWT Commands",
+			"syntax": "JWT Delete(&L)"
+		},
+		{
+			"theme": "JWT Commands",
+			"syntax": "JWT Get Algorithm(&L):I"
+		},
+		{
+			"theme": "JWT Commands",
+			"syntax": "JWT Set Algorithm(&L;&I;&T)"
+		},
+		{
+			"theme": "JWT Commands",
+			"syntax": "JWT Get Grant(&L;&T):T"
+		},
+		{
+			"theme": "JWT Commands",
+			"syntax": "JWT Set Grant(&L;&T;&T)"
+		},
+		{
+			"theme": "JWT Commands",
+			"syntax": "JWT Remove Grant(&L;&T)"
+		},
+		{
+			"theme": "JWT Commands",
+			"syntax": "JWT Encode(&L):T"
+		},
+		{
+			"theme": "JWT Commands",
+			"syntax": "JWT Dump(&L):T"
+		}
+	]
+}
